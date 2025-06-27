@@ -7,5 +7,6 @@
 
 ### Пример работы.
 [![asciicast](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv.svg)](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv)
+<script src="https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv.js" id="asciicast-3YG8r9LVf9GYfjzQJVNWuVwmv" async="true"></script>
 
 

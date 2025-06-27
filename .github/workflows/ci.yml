@@ -24,7 +24,7 @@ jobs:
         run: cd app && ./gradlew build
 
       - name: Generate coverage report
-        run: cd app && make report jacocoTestReport
+        run: cd app && ./gradlew jacocoTestReport
 
       - name: Cache SonarQube packages
         uses: actions/cache@v4

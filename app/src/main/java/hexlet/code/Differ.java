@@ -1,9 +1,5 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -12,11 +8,10 @@ import java.util.TreeSet;
 public class Differ {
 
     public static String generate(String filepath1, String filepath2) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        // Читаем файлы и парсим в Map
-        Map<String, Object> map1 = objectMapper.readValue(Files.readString(Paths.get(filepath1)), Map.class);
-        Map<String, Object> map2 = objectMapper.readValue(Files.readString(Paths.get(filepath2)), Map.class);
+        // Читаем файлы и парсим в Map c помощью Parser.java
+        Map<String, Object> map1 = Parser.parse(filepath1);
+        Map<String, Object> map2 = Parser.parse(filepath2);
 
         // Все ключи из двух файлов
         Set<String> allKeys = new TreeSet<>();
@@ -43,7 +38,7 @@ public class Differ {
                 // Есть в обоих
                 if (Objects.equals(val1, val2)) {
                     // Без изменений
-                    result.append(String.format("  %s: %s%n", key, val1));
+                    result.append(String.format("    %s: %s%n", key, val1));
                 } else {
                     // Значения отличаются
                     result.append(String.format("  - %s: %s%n", key, val1));

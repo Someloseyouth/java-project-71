@@ -15,5 +15,8 @@
 [![asciicast](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv.svg)](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv)
 [![asciicast](https://asciinema.org/a/Jcfr6DEXF1K4dmbOgDvEB3L3a.svg)](https://asciinema.org/a/Jcfr6DEXF1K4dmbOgDvEB3L3a)
 
+### Пример работы с форматом json для вложенных структур.
+[![asciicast](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV.svg)](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV)
+
 
 

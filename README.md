@@ -18,5 +18,5 @@
 ### Пример работы с форматом json для вложенных структур.
 [![asciicast](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV.svg)](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV)
 
-
-
+### Пример работы с форматером plain.
+[![asciicast](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe.svg)](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe)

@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.List;
 import java.util.Objects;
 
-public class Node {
+public final class Node {
     public enum Status {
         ADDED,      // Значение добавлено во втором файле
         REMOVED,    // Значение удалено во втором файле

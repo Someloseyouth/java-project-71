@@ -23,23 +23,54 @@ public class StylishFormatter {
 
             switch (status) {
                 case Node.Status.ADDED:
-                    result.append(indent).append("+ ").append(key).append(": ").append(formatValue(node.getValueAfter())).append("\n");
+                    result.append(indent)
+                            .append("+ ")
+                            .append(key)
+                            .append(": ")
+                            .append(formatValue(node.getValueAfter()))
+                            .append("\n");
                     break;
                 case Node.Status.REMOVED:
-                    result.append(indent).append("- ").append(key).append(": ").append(formatValue(node.getValueBefore())).append("\n");
+                    result.append(indent)
+                            .append("- ")
+                            .append(key)
+                            .append(": ")
+                            .append(formatValue(node.getValueBefore()))
+                            .append("\n");
                     break;
                 case Node.Status.UNCHANGED:
-                    result.append(indent).append("  ").append(key).append(": ").append(formatValue(node.getValueAfter())).append("\n");
+                    result.append(indent)
+                            .append("  ")
+                            .append(key)
+                            .append(": ")
+                            .append(formatValue(node.getValueAfter()))
+                            .append("\n");
                     break;
                 case Node.Status.CHANGED:
-                    result.append(indent).append("- ").append(key).append(": ").append(formatValue(node.getValueBefore())).append("\n");
-                    result.append(indent).append("+ ").append(key).append(": ").append(formatValue(node.getValueAfter())).append("\n");
+                    result.append(indent)
+                            .append("- ")
+                            .append(key)
+                            .append(": ")
+                            .append(formatValue(node.getValueBefore()))
+                            .append("\n");
+                    result.append(indent)
+                            .append("+ ")
+                            .append(key)
+                            .append(": ")
+                            .append(formatValue(node.getValueAfter()))
+                            .append("\n");
                     break;
                 case Node.Status.NESTED:
-                    result.append(indent).append("  ").append(key).append(": ");
+                    result.append(indent)
+                            .append("  ")
+                            .append(key)
+                            .append(": ");
                     result.append("{\n");
                     buildFormattedString(node.getChildren(), result, depth + 1);
                     result.append("  ".repeat(depth)).append("}\n");
+                    break;
+                default:
+                    // не должен срабатывать
                     break;
             }
         }

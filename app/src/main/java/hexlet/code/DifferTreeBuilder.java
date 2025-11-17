@@ -49,7 +49,8 @@ public class DifferTreeBuilder {
                     }
                 } else if (Objects.equals(value1, value2)) {
                     // Простые значения или разные типы (но равные по toString? Нет, equals проверяет типы)
-                    // Если дошли сюда, значит либо оба простые, либо один сложный, другой простой, но они не равны по equals.
+                    // Если дошли сюда, значит либо оба простые, либо один сложный, другой простой,
+                    // но они не равны по equals.
                     // equals для разных типов вернет false.
                     // Значит, если equals вернул true, они оба простые и равны.
                     nodes.add(new Node(key, Node.Status.UNCHANGED, value1, value2));

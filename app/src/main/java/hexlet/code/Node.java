@@ -18,7 +18,7 @@ public class Node {
     private final Object valueAfter;  // Значение из второго файла
     private final List<Node> children; // Вложенные изменения (для статуса NESTED)
 
-    // Конструктор для NESTED узлов (с детьми)
+    // Конструктор для NESTED узлов (с children)
     public Node(String key, Status status, List<Node> children) {
         this.key = key;
         this.status = status;
@@ -27,7 +27,7 @@ public class Node {
         this.valueAfter = null;
     }
 
-    // Конструктор для остальных статусов (без детей)
+    // Конструктор для остальных статусов
     public Node(String key, Status status, Object valueBefore, Object valueAfter) {
         this.key = key;
         this.status = status;
@@ -36,7 +36,7 @@ public class Node {
         this.children = null;
     }
 
-    // Геттеры
+
     public String getKey() {
         return key;
     }
@@ -57,17 +57,21 @@ public class Node {
         return children;
     }
 
-    // equals, hashCode, toString (опционально, но полезно для отладки/тестов)
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Node node = (Node) o;
-        return Objects.equals(key, node.key) &&
-                status == node.status &&
-                Objects.equals(valueBefore, node.valueBefore) &&
-                Objects.equals(valueAfter, node.valueAfter) &&
-                Objects.equals(children, node.children);
+        return Objects.equals(key, node.key)
+                && status == node.status
+                && Objects.equals(valueBefore, node.valueBefore)
+                && Objects.equals(valueAfter, node.valueAfter)
+                && Objects.equals(children, node.children);
     }
 
     @Override
@@ -77,12 +81,12 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "key='" + key + '\'' +
-                ", status=" + status +
-                ", valueBefore=" + valueBefore +
-                ", valueAfter=" + valueAfter +
-                ", children=" + children +
-                '}';
+        return "Node{"
+                + "key='" + key + '\''
+                + ", status=" + status
+                + ", valueBefore=" + valueBefore
+                + ", valueAfter=" + valueAfter
+                + ", children=" + children
+                + '}';
     }
 }

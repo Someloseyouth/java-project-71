@@ -56,34 +56,34 @@
 ./build/install/app/bin/app filepath1.json filepath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv.svg)](https://asciinema.org/a/3YG8r9LVf9GYfjzQJVNWuVwmv)
+[![asciicast](https://asciinema.org/a/sKrINbNsMHFXSq8AsxK6le6ex.svg)](https://asciinema.org/a/sKrINbNsMHFXSq8AsxK6le6ex)
 
 ```bash
 ./build/install/app/bin/app filepath1.yaml filepath2.yaml
 ```
 
-[![asciicast](https://asciinema.org/a/Jcfr6DEXF1K4dmbOgDvEB3L3a.svg)](https://asciinema.org/a/Jcfr6DEXF1K4dmbOgDvEB3L3a)
+[![asciicast](https://asciinema.org/a/RC7gafwUc3wRzJJR41f3PTEnU.svg)](https://asciinema.org/a/RC7gafwUc3wRzJJR41f3PTEnU)
 
 Cравнение файлов с использованием формата plain:
 
 ```bash
-./build/install/app/bin/app --format plain json1.json json2.json
+./build/install/app/bin/app -f plain filepath1.json filepath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe.svg)](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe)
+[![asciicast](https://asciinema.org/a/W33B6sb9PLfxCPuoM8jXEpr1a.svg)](https://asciinema.org/a/W33B6sb9PLfxCPuoM8jXEpr1a)
 
 Сравнение файлов с вложенными структурами формат stylish:
 
 ```bash
-./build/install/app/bin/app json1.json json2.json
+./build/install/app/bin/app filepath1.json filepath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV.svg)](https://asciinema.org/a/34UQ9k1abrDvdK7gDvUoyqHBV)
+[![asciicast](https://asciinema.org/a/WISJh5wO1GGqJqs2njRPuepMv.svg)](https://asciinema.org/a/WISJh5wO1GGqJqs2njRPuepMv)
 
 Сравнение файлов с использованием формата json:
 
 ```bash
-./build/install/app/bin/app -f json yaml1.yaml yaml2.yaml
+./build/install/app/bin/app --format json filepath1.json filepath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/QLljwTC9svZ7N6iKT4rJf3W9L.svg)](https://asciinema.org/a/QLljwTC9svZ7N6iKT4rJf3W9L)
+[![asciicast](https://asciinema.org/a/mnb87oK7sFiTn7onZhPDjTxBM.svg)](https://asciinema.org/a/mnb87oK7sFiTn7onZhPDjTxBM)

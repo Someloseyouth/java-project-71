@@ -20,3 +20,6 @@
 
 ### Пример работы с форматером plain.
 [![asciicast](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe.svg)](https://asciinema.org/a/z1u0UQ54XvDUpyoZWejGVTzYe)
+
+### Пример работы с форматером json.
+[![asciicast](https://asciinema.org/a/QLljwTC9svZ7N6iKT4rJf3W9L.svg)](https://asciinema.org/a/QLljwTC9svZ7N6iKT4rJf3W9L)

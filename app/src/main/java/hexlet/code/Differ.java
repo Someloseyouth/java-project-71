@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.List;
 import java.util.Map;
 
-public class Differ {
+public final class Differ {
 
     // Приватный конструктор для предотвращения создания экземпляров
     private Differ() {

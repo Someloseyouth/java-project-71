@@ -10,28 +10,30 @@ import java.util.List;
 
 public class JsonFormatter {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper()
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
             .enable(SerializationFeature.INDENT_OUTPUT);
 
     public static String format(List<Node> diffTree) throws Exception {
-        ArrayNode resultArray = objectMapper.createArrayNode();
+        ArrayNode resultArray = OBJECT_MAPPER.createArrayNode();
 
         buildJsonArray(diffTree, resultArray);
 
-        return objectMapper.writeValueAsString(resultArray);
+        return OBJECT_MAPPER.writeValueAsString(resultArray);
     }
 
     private static void buildJsonArray(List<Node> nodes, ArrayNode targetArray) {
         for (Node node : nodes) {
-            ObjectNode nodeObject = objectMapper.createObjectNode();
+            ObjectNode nodeObject = OBJECT_MAPPER.createObjectNode();
             nodeObject.put("key", node.getKey());
             nodeObject.put("status", node.getStatus().toString().toLowerCase());
 
-            nodeObject.set("valueBefore", node.getValueBefore() != null ? objectMapper.valueToTree(node.getValueBefore()) : null);
-            nodeObject.set("valueAfter", node.getValueAfter() != null ? objectMapper.valueToTree(node.getValueAfter()) : null);
+            nodeObject.set("valueBefore", node.getValueBefore() != null
+                    ? OBJECT_MAPPER.valueToTree(node.getValueBefore()) : null);
+            nodeObject.set("valueAfter", node.getValueAfter() != null
+                    ? OBJECT_MAPPER.valueToTree(node.getValueAfter()) : null);
 
             if (node.getChildren() != null) {
-                ArrayNode childrenArray = objectMapper.createArrayNode();
+                ArrayNode childrenArray = OBJECT_MAPPER.createArrayNode();
                 buildJsonArray(node.getChildren(), childrenArray);
                 nodeObject.set("children", childrenArray);
             } else {

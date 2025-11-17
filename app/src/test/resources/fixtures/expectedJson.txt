@@ -1,153 +1,94 @@
-[
-  {
-    "key": "chars1",
-    "status": "unchanged",
-    "valueBefore": [
-      "a",
-      "b",
-      "c"
-    ],
-    "valueAfter": [
-      "a",
-      "b",
-      "c"
-    ],
-    "children": null
+[ {
+  "key" : "chars1",
+  "status" : "unchanged",
+  "valueBefore" : [ "a", "b", "c" ],
+  "valueAfter" : [ "a", "b", "c" ],
+  "children" : null
+}, {
+  "key" : "chars2",
+  "status" : "changed",
+  "valueBefore" : [ "d", "e", "f" ],
+  "valueAfter" : false,
+  "children" : null
+}, {
+  "key" : "checked",
+  "status" : "changed",
+  "valueBefore" : false,
+  "valueAfter" : true,
+  "children" : null
+}, {
+  "key" : "default",
+  "status" : "changed",
+  "valueBefore" : null,
+  "valueAfter" : [ "value1", "value2" ],
+  "children" : null
+}, {
+  "key" : "id",
+  "status" : "changed",
+  "valueBefore" : 45,
+  "valueAfter" : null,
+  "children" : null
+}, {
+  "key" : "key1",
+  "status" : "removed",
+  "valueBefore" : "value1",
+  "valueAfter" : null,
+  "children" : null
+}, {
+  "key" : "key2",
+  "status" : "added",
+  "valueBefore" : null,
+  "valueAfter" : "value2",
+  "children" : null
+}, {
+  "key" : "numbers1",
+  "status" : "unchanged",
+  "valueBefore" : [ 1, 2, 3, 4 ],
+  "valueAfter" : [ 1, 2, 3, 4 ],
+  "children" : null
+}, {
+  "key" : "numbers2",
+  "status" : "changed",
+  "valueBefore" : [ 2, 3, 4, 5 ],
+  "valueAfter" : [ 22, 33, 44, 55 ],
+  "children" : null
+}, {
+  "key" : "numbers3",
+  "status" : "removed",
+  "valueBefore" : [ 3, 4, 5 ],
+  "valueAfter" : null,
+  "children" : null
+}, {
+  "key" : "numbers4",
+  "status" : "added",
+  "valueBefore" : null,
+  "valueAfter" : [ 4, 5, 6 ],
+  "children" : null
+}, {
+  "key" : "obj1",
+  "status" : "added",
+  "valueBefore" : null,
+  "valueAfter" : {
+    "nestedKey" : "value",
+    "isNested" : true
   },
-  {
-    "key": "chars2",
-    "status": "changed",
-    "valueBefore": [
-      "d",
-      "e",
-      "f"
-    ],
-    "valueAfter": false,
-    "children": null
-  },
-  {
-    "key": "checked",
-    "status": "changed",
-    "valueBefore": false,
-    "valueAfter": true,
-    "children": null
-  },
-  {
-    "key": "default",
-    "status": "changed",
-    "valueBefore": null,
-    "valueAfter": [
-      "value1",
-      "value2"
-    ],
-    "children": null
-  },
-  {
-    "key": "id",
-    "status": "changed",
-    "valueBefore": 45,
-    "valueAfter": null,
-    "children": null
-  },
-  {
-    "key": "key1",
-    "status": "removed",
-    "valueBefore": "value1",
-    "valueAfter": null,
-    "children": null
-  },
-  {
-    "key": "key2",
-    "status": "added",
-    "valueBefore": null,
-    "valueAfter": "value2",
-    "children": null
-  },
-  {
-    "key": "numbers1",
-    "status": "unchanged",
-    "valueBefore": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "valueAfter": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "children": null
-  },
-  {
-    "key": "numbers2",
-    "status": "changed",
-    "valueBefore": [
-      2,
-      3,
-      4,
-      5
-    ],
-    "valueAfter": [
-      22,
-      33,
-      44,
-      55
-    ],
-    "children": null
-  },
-  {
-    "key": "numbers3",
-    "status": "removed",
-    "valueBefore": [
-      3,
-      4,
-      5
-    ],
-    "valueAfter": null,
-    "children": null
-  },
-  {
-    "key": "numbers4",
-    "status": "added",
-    "valueBefore": null,
-    "valueAfter": [
-      4,
-      5,
-      6
-    ],
-    "children": null
-  },
-  {
-    "key": "obj1",
-    "status": "added",
-    "valueBefore": null,
-    "valueAfter": {
-      "nestedKey1": "NEW_nestedValue1",
-      "nestedKey3": true
-    },
-    "children": null
-  },
-  {
-    "key": "setting1",
-    "status": "changed",
-    "valueBefore": "Some value",
-    "valueAfter": "Another value",
-    "children": null
-  },
-  {
-    "key": "setting2",
-    "status": "changed",
-    "valueBefore": 200,
-    "valueAfter": 300,
-    "children": null
-  },
-  {
-    "key": "setting3",
-    "status": "changed",
-    "valueBefore": true,
-    "valueAfter": "none",
-    "children": null
-  }
-]
+  "children" : null
+}, {
+  "key" : "setting1",
+  "status" : "changed",
+  "valueBefore" : "Some value",
+  "valueAfter" : "Another value",
+  "children" : null
+}, {
+  "key" : "setting2",
+  "status" : "changed",
+  "valueBefore" : 200,
+  "valueAfter" : 300,
+  "children" : null
+}, {
+  "key" : "setting3",
+  "status" : "changed",
+  "valueBefore" : true,
+  "valueAfter" : "none",
+  "children" : null
+} ]

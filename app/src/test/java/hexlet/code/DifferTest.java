@@ -107,7 +107,7 @@ public class DifferTest {
     void testGenerateNestedJsonDiffPlain() throws Exception {
         Path file1 = Path.of("src/test/resources/fixtures/nested1.json");
         Path file2 = Path.of("src/test/resources/fixtures/nested2.json");
-        Path expectedFile = Path.of("src/test/resources/fixtures/expected_plain.txt");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedPlain.txt");
 
         String expected = Files.readString(expectedFile).trim();
         String actual = Differ.generate(file1.toString(), file2.toString(), "plain").trim();
@@ -120,7 +120,7 @@ public class DifferTest {
     void testGenerateNestedJsonDiffJson() throws Exception {
         Path file1 = Path.of("src/test/resources/fixtures/nested1.json");
         Path file2 = Path.of("src/test/resources/fixtures/nested2.json");
-        Path expectedFile = Path.of("src/test/resources/fixtures/expected_json.txt");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedJson.txt");
 
         String expected = Files.readString(expectedFile).trim();
         String actual = Differ.generate(file1.toString(), file2.toString(), "json").trim();

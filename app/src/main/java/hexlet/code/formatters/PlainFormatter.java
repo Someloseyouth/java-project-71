@@ -24,18 +24,22 @@ public class PlainFormatter {
 
             switch (status) {
                 case Node.Status.ADDED:
-                    result.append(String.format("Property '%s' was added with value: %s%n", fullPath, formatValue(node.getValueAfter())));
+                    result.append(String.format("Property '%s' was added with value: %s%n",
+                            fullPath, formatValue(node.getValueAfter())));
                     break;
                 case Node.Status.REMOVED:
                     result.append(String.format("Property '%s' was removed%n", fullPath));
                     break;
                 case Node.Status.CHANGED:
-                    result.append(String.format("Property '%s' was updated. From %s to %s%n", fullPath, formatValue(node.getValueBefore()), formatValue(node.getValueAfter())));
+                    result.append(String.format("Property '%s' was updated. From %s to %s%n",
+                            fullPath, formatValue(node.getValueBefore()), formatValue(node.getValueAfter())));
                     break;
                 case Node.Status.UNCHANGED:
                     break;
                 case Node.Status.NESTED:
                     buildFormattedString(node.getChildren(), result, fullPath);
+                    break;
+                default:
                     break;
             }
         }

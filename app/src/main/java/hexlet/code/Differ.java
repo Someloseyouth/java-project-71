@@ -7,6 +7,7 @@ public class Differ {
 
     // Приватный конструктор для предотвращения создания экземпляров
     private Differ() {
+
     }
 
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
@@ -15,7 +16,6 @@ public class Differ {
 
         List<Node> diffTree = DifferTreeBuilder.build(map1, map2);
 
-        // Используем центральный класс Formatter
         return Formatter.format(diffTree, format);
     }
 

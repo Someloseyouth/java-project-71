@@ -18,7 +18,7 @@ public class Node {
     private final Object valueAfter;  // Значение из второго файла
     private final List<Node> children; // Вложенные изменения (для статуса NESTED)
 
-    // Конструктор для NESTED узлов (с children)
+    // NESTED
     public Node(String key, Status status, List<Node> children) {
         this.key = key;
         this.status = status;
@@ -27,7 +27,6 @@ public class Node {
         this.valueAfter = null;
     }
 
-    // Конструктор для остальных статусов
     public Node(String key, Status status, Object valueBefore, Object valueAfter) {
         this.key = key;
         this.status = status;

@@ -89,4 +89,17 @@ public class DifferTest {
         String actual = Differ.generate(file1.toString(), file2.toString()).trim();
         assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
     }
+
+    @Test
+    void testGenerateNestedJsonDiff() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.json");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.json");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylish.txt");
+
+        String expected = Files.readString(expectedFile).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish").trim(); // Явно указываем формат
+
+        assertEquals(expected.trim().replaceAll("\\R", "\n"),
+                actual.trim().replaceAll("\\R", "\n"));
+    }
 }

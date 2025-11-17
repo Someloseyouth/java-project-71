@@ -89,4 +89,17 @@ public class YamlDifferTest {
         String actual = Differ.generate(file1.toString(), file2.toString()).trim();
         assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
     }
+
+    @Test
+    void testGenerateNestedYamlDiff() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.yaml");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.yaml");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylishYaml.txt");
+
+        String expected = Files.readString(expectedFile).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish").trim(); // Явно указываем формат
+
+        assertEquals(expected.trim().replaceAll("\\R", "\n"),
+                actual.trim().replaceAll("\\R", "\n"));
+    }
 }

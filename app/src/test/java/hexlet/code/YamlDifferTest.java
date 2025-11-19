@@ -16,14 +16,13 @@ public class YamlDifferTest {
         Path expectedFile = Path.of("src/test/resources/fixtures/expectedYaml.txt");
 
         // Читаем ожидаемый результат
-        String expected = Files.readString(expectedFile).trim();
+        String expected = Files.readString(expectedFile);
 
         // Получаем результат работы программы
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString());
 
         // Проверяем
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -38,7 +37,7 @@ public class YamlDifferTest {
         Files.writeString(file1, yaml1);
         Files.writeString(file2, yaml2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString());
         assertEquals(expected, actual);
     }
 
@@ -54,8 +53,8 @@ public class YamlDifferTest {
         Files.writeString(file1, yaml1);
         Files.writeString(file2, yaml2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -70,8 +69,8 @@ public class YamlDifferTest {
         Files.writeString(file1, yaml1);
         Files.writeString(file2, yaml2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -86,20 +85,55 @@ public class YamlDifferTest {
         Files.writeString(file1, yaml1);
         Files.writeString(file2, yaml2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
-    void testGenerateNestedYamlDiff() throws Exception {
+    void testGenerateNestedYamlStylish() throws Exception {
         Path file1 = Path.of("src/test/resources/fixtures/nested1.yaml");
         Path file2 = Path.of("src/test/resources/fixtures/nested2.yaml");
         Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylishYaml.txt");
 
         String expected = Files.readString(expectedFile).trim();
-        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish").trim(); // Явно указываем формат
+        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish");
 
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGenerateNestedYamlPlain() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.yaml");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.yaml");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedPlain.txt");
+
+        String expected = Files.readString(expectedFile).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "plain");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGenerateNestedYamlJson() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.yaml");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.yaml");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedJson.txt");
+
+        String expected = Files.readString(expectedFile).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "json");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGenerateNestedYamlDefault() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.yaml");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.yaml");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylishYaml.txt");
+
+        String expected = Files.readString(expectedFile).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString());
+
+        assertEquals(expected, actual);
     }
 }

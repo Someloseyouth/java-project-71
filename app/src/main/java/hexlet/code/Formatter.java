@@ -13,7 +13,7 @@ public class Formatter {
             case "stylish" -> StylishFormatter.format(diffTree);
             case "plain" -> PlainFormatter.format(diffTree);
             case "json" -> JsonFormatter.format(diffTree);
-            default -> StylishFormatter.format(diffTree);
+            default -> throw new RuntimeException("Unknown format: " + formatName);
         };
     }
 }

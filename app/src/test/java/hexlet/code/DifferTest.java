@@ -16,14 +16,13 @@ public class DifferTest {
         Path expectedFile = Path.of("src/test/resources/fixtures/expected.txt");
 
         // Читаем ожидаемый результат
-        String expected = Files.readString(expectedFile).trim();
+        String expected = Files.readString(expectedFile);
 
         // Получаем результат работы программы
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString());
 
         // Проверяем
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -38,7 +37,7 @@ public class DifferTest {
         Files.writeString(file1, json1);
         Files.writeString(file2, json2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
+        String actual = Differ.generate(file1.toString(), file2.toString());
         assertEquals(expected, actual);
     }
 
@@ -54,8 +53,8 @@ public class DifferTest {
         Files.writeString(file1, json1);
         Files.writeString(file2, json2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -70,8 +69,8 @@ public class DifferTest {
         Files.writeString(file1, json1);
         Files.writeString(file2, json2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -86,21 +85,20 @@ public class DifferTest {
         Files.writeString(file1, json1);
         Files.writeString(file2, json2);
 
-        String actual = Differ.generate(file1.toString(), file2.toString()).trim();
-        assertEquals(expected.trim().replaceAll("\\R", "\n"), actual.trim().replaceAll("\\R", "\n"));
+        String actual = Differ.generate(file1.toString(), file2.toString());
+        assertEquals(expected, actual);
     }
 
     @Test
-    void testGenerateNestedJsonDiff() throws Exception {
+    void testGenerateNestedJsonStylish() throws Exception {
         Path file1 = Path.of("src/test/resources/fixtures/nested1.json");
         Path file2 = Path.of("src/test/resources/fixtures/nested2.json");
         Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylish.txt");
 
-        String expected = Files.readString(expectedFile).trim();
-        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish").trim(); // Явно указываем формат
+        String expected = Files.readString(expectedFile);
+        String actual = Differ.generate(file1.toString(), file2.toString(), "stylish");
 
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -110,10 +108,9 @@ public class DifferTest {
         Path expectedFile = Path.of("src/test/resources/fixtures/expectedPlain.txt");
 
         String expected = Files.readString(expectedFile).trim();
-        String actual = Differ.generate(file1.toString(), file2.toString(), "plain").trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "plain");
 
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -123,9 +120,20 @@ public class DifferTest {
         Path expectedFile = Path.of("src/test/resources/fixtures/expectedJson.txt");
 
         String expected = Files.readString(expectedFile).trim();
-        String actual = Differ.generate(file1.toString(), file2.toString(), "json").trim();
+        String actual = Differ.generate(file1.toString(), file2.toString(), "json");
 
-        assertEquals(expected.trim().replaceAll("\\R", "\n"),
-                actual.trim().replaceAll("\\R", "\n"));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGenerateNestedJsonDefault() throws Exception {
+        Path file1 = Path.of("src/test/resources/fixtures/nested1.json");
+        Path file2 = Path.of("src/test/resources/fixtures/nested2.json");
+        Path expectedFile = Path.of("src/test/resources/fixtures/expectedNestedStylish.txt");
+
+        String expected = Files.readString(expectedFile);
+        String actual = Differ.generate(file1.toString(), file2.toString());
+
+        assertEquals(expected, actual);
     }
 }

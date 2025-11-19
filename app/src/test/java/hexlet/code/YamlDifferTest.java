@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class YamlDifferTest {
     @Test
@@ -135,5 +136,10 @@ public class YamlDifferTest {
         String actual = Differ.generate(file1.toString(), file2.toString());
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void testEmptyYaml() throws Exception {
+        assertTrue(Parser.parse("", "yaml").isEmpty());
     }
 }

@@ -4,8 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class DifferTest {
     @Test
@@ -134,6 +137,34 @@ public class DifferTest {
         String expected = Files.readString(expectedFile);
         String actual = Differ.generate(file1.toString(), file2.toString());
 
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testEmptyJson() throws Exception {
+        assertTrue(Parser.parse("", "json").isEmpty());
+    }
+
+    @Test
+    void testStylishEmptyDiffTree() throws Exception {
+        assertNotNull(Formatter.format(List.of(), "stylish"));
+    }
+
+    @Test
+    void testPlainEmptyDiffTree() throws Exception {
+        assertNotNull(Formatter.format(List.of(), "plain"));
+    }
+
+    @Test
+    void testJsonEmptyDiffTree() throws Exception {
+        assertNotNull(Formatter.format(List.of(), "json"));
+    }
+
+    @Test
+    void testNoDiffForEqualFiles() throws Exception {
+        Path file = Path.of("src/test/resources/fixtures/filepath1.json");
+        String actual = Differ.generate(file.toString(), file.toString());
+        String expected = Differ.generate(file.toString(), file.toString());
         assertEquals(expected, actual);
     }
 }

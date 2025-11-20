@@ -1,7 +1,3 @@
-# Вычислитель отличий (Gendiff)
-
-**Gendiff** — это консольная утилита на Java, предназначенная для определения и отображения разницы между двумя файлами конфигурации или структурами данных в форматах JSON и YAML.
-
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/Someloseyouth/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Someloseyouth/java-project-71/actions)
 
@@ -9,6 +5,10 @@
 ![CI](https://github.com/Someloseyouth/java-project-71/actions/workflows/ci.yml/badge.svg)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Someloseyouth_java-project-71&metric=coverage)](https://sonarcloud.io/dashboard?id=Someloseyouth_java-project-71)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Someloseyouth_java-project-71&metric=alert_status)](https://sonarcloud.io/dashboard?id=Someloseyouth_java-project-71)
+
+# Вычислитель отличий (Gendiff)
+
+**Gendiff** — это консольная утилита на Java, предназначенная для определения и отображения разницы между двумя файлами конфигурации или структурами данных в форматах JSON и YAML.
 
 ## Возможности
 

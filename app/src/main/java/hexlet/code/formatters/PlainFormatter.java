@@ -40,7 +40,7 @@ public class PlainFormatter {
                     buildFormattedString(node.getChildren(), result, fullPath);
                     break;
                 default:
-                    break;
+                    throw new RuntimeException("Unknown type: '" + status + "'");
             }
         }
     }

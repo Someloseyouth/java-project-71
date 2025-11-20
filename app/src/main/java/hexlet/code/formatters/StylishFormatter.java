@@ -70,8 +70,7 @@ public class StylishFormatter {
                     result.append("  ".repeat(depth)).append("}\n");
                     break;
                 default:
-                    // не должен срабатывать
-                    break;
+                    throw new RuntimeException("Unknown type: '" + status + "'");
             }
         }
     }

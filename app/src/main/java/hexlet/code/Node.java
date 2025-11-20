@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -9,7 +11,12 @@ public final class Node {
         REMOVED,    // Значение удалено во втором файле
         UNCHANGED,  // Значение не изменилось
         CHANGED,    // Значение изменилось
-        NESTED      // Значение - вложенный объект, содержащий другие изменения
+        NESTED;      // Значение - вложенный объект, содержащий другие изменения
+
+        @JsonValue
+        public String toLower() {
+            return this.name().toLowerCase();
+        }
     }
 
     private final String key;

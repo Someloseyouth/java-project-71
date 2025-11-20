@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NodeTest {
+
     @Test
     void testNodeGetters() {
         Node node = new Node("key", Node.Status.ADDED, "valueBefore", "valueAfter");

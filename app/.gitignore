@@ -16,6 +16,9 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+app/Run
+app/Tush
+app/There
 
 ### Eclipse ###
 .apt_generated

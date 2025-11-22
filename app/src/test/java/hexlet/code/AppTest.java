@@ -29,4 +29,12 @@ public class AppTest {
         int exitCode = new CommandLine(new App()).execute(args);
         assertNotEquals(0, exitCode);
     }
+
+    @Test
+    void testRunWithWrongFormat() {
+        String[] args = {"src/test/resources/fixtures/filepath1.json",
+            "src/test/resources/fixtures/filepath2.json", "-f", "xml"};
+        int exitCode = new CommandLine(new App()).execute(args);
+        assertNotEquals(0, exitCode);
+    }
 }

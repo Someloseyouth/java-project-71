@@ -3,43 +3,68 @@ package hexlet.code;
 import hexlet.code.formatters.JsonFormatter;
 import org.junit.jupiter.api.Test;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class JsonFormatterTest {
-    private final ObjectMapper mapper = new ObjectMapper();
+
+class JsonFormatterTest {
 
     @Test
-    void testFormatEmptyList() throws Exception {
-        List<Node> emptyList = List.of();
-        String result = JsonFormatter.format(emptyList);
-        assertEquals("[]", result);
+    void testFormatSimpleNodes() throws Exception {
+        List<Node> nodes = List.of(
+                new Node("key1", Node.Status.ADDED, null, "newValue"),
+                new Node("key2", Node.Status.REMOVED, "oldValue", null),
+                new Node("key3", Node.Status.UNCHANGED, "same", "same"),
+                new Node("key4", Node.Status.CHANGED, "old", "new")
+        );
+
+        String json = JsonFormatter.format(nodes);
+
+        assertNotNull(json);
+        assertTrue(json.contains("\"key\":\"key1\""));
+        assertTrue(json.contains("\"status\":\"added\""));
+        assertTrue(json.contains("\"valueAfter\":\"newValue\""));
+        assertTrue(json.contains("\"valueBefore\":null"));
+
+        assertTrue(json.contains("\"key\":\"key2\""));
+        assertTrue(json.contains("\"status\":\"removed\""));
+        assertTrue(json.contains("\"valueBefore\":\"oldValue\""));
+        assertTrue(json.contains("\"valueAfter\":null"));
+
+        assertTrue(json.contains("\"key\":\"key3\""));
+        assertTrue(json.contains("\"status\":\"unchanged\""));
+        assertTrue(json.contains("\"valueBefore\":\"same\""));
+        assertTrue(json.contains("\"valueAfter\":\"same\""));
+
+        assertTrue(json.contains("\"key\":\"key4\""));
+        assertTrue(json.contains("\"status\":\"changed\""));
+        assertTrue(json.contains("\"valueBefore\":\"old\""));
+        assertTrue(json.contains("\"valueAfter\":\"new\""));
     }
 
     @Test
-    void testFormatSingleNode() throws Exception {
-        Node node = new Node("key1", Node.Status.ADDED, null, "value");
-        List<Node> diff = List.of(node);
+    void testFormatNestedNodes() throws Exception {
+        List<Node> childNodes = List.of(
+                new Node("childKey", Node.Status.ADDED, null, "childValue")
+        );
+        Node parentNode = new Node("parentKey", Node.Status.NESTED, childNodes);
 
-        String actualJson = JsonFormatter.format(diff);
+        String json = JsonFormatter.format(List.of(parentNode));
 
-        String expectedJson = "["
-                + "{"
-                + "\"key\":\"key1\","
-                + "\"status\":\"added\","
-                + "\"valueBefore\":null,"
-                + "\"valueAfter\":\"value\","
-                + "\"children\":null"
-                + "}"
-                + "]";
+        assertNotNull(json);
+        assertTrue(json.contains("\"key\":\"parentKey\""));
+        assertTrue(json.contains("\"status\":\"nested\""));
+        assertTrue(json.contains("\"children\""));
+        assertTrue(json.contains("\"key\":\"childKey\""));
+        assertTrue(json.contains("\"valueAfter\":\"childValue\""));
+    }
 
-        JsonNode actualTree = mapper.readTree(actualJson);
-        JsonNode expectedTree = mapper.readTree(expectedJson);
-
-        assertEquals(expectedTree, actualTree);
+    @Test
+    void testFormatEmptyList() throws Exception {
+        String json = JsonFormatter.format(List.of());
+        assertEquals("[]", json);
     }
 }

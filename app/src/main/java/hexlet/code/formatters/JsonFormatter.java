@@ -11,7 +11,9 @@ public class JsonFormatter {
 
     public static String format(List<Node> diff) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(diff);
+        ArrayNode rootArray = mapper.createArrayNode();
+        buildJsonArray(mapper, diff, rootArray);
+        return mapper.writeValueAsString(rootArray);
     }
 
     private static void buildJsonArray(ObjectMapper mapper, List<Node> nodes, ArrayNode targetArray) {

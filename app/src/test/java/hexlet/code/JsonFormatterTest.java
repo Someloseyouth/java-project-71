@@ -67,4 +67,17 @@ class JsonFormatterTest {
         String json = JsonFormatter.format(List.of());
         assertEquals("[]", json);
     }
+
+    @Test
+    void testFormatNodesWithNullAndEmptyChildren() throws Exception {
+        Node nodeWithNullValues = new Node("nullNode", Node.Status.ADDED, null, null);
+        Node nodeWithEmptyChildren = new Node("emptyChildren", Node.Status.NESTED, List.of());
+
+        String json = JsonFormatter.format(List.of(nodeWithNullValues, nodeWithEmptyChildren));
+
+        assertNotNull(json);
+        assertTrue(json.contains("\"valueBefore\":null"));
+        assertTrue(json.contains("\"valueAfter\":null"));
+        assertTrue(json.contains("\"children\":null"));
+    }
 }
